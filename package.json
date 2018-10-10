@@ -1,0 +1,17 @@
+{
+  "name": "ridarplus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "read-chunk": "^3.0.0",
+    "sax": "^1.2.4",
+    "stream-to-generator": "^0.1.1",
+    "xml-js": "^1.6.8"
+  }
+}
