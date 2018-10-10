@@ -51,7 +51,7 @@ function* spectralGenerator(filename) {
     let rawSpectrum = chunk.substring(startIndex, endIndex);
     let parsedSpectrum = xmlConvert.xml2json(rawSpectrum, {compact: true, spaces: 2});
 
-    yield { data: parsedSpectrum, progress: i/(index.length-1) };
+    yield { data: JSON.parse(parsedSpectrum), progress: i/(index.length-1) };
   }
 
   return { data: true, progress: 1 };

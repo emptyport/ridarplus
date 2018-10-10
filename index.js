@@ -16,7 +16,8 @@ let options = {
   ],
   tolerance: 0.002,
   msLevel: 3,
-  foldChange: 5
+  foldChange: 5,
+  outputPath: './'
 };
 
 let specProc = spectralProcessor(filename, options);
