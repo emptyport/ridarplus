@@ -17,6 +17,7 @@ let options = {
   tolerance: 0.002,
   msLevel: 3,
   foldChange: 5,
+  missingReporters: 2,
   outputPath: './'
 };
 
