@@ -1,2 +1,7 @@
 node_modules
+search_output
 *.mzML
+*.mgf
+*.mgf.cui
+*.xlsx
+*.~lock.*
