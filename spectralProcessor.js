@@ -186,6 +186,7 @@ function writeSignificantSpectra(wstream, significantSpectra, options) {
       }
     }
 
+    /*
     let precursorMass = 0;
     for(let j=0; j<currentSpectrum.cvParam.length; j++) {
       let name = currentSpectrum.cvParam[j]._attributes.name;
@@ -193,12 +194,21 @@ function writeSignificantSpectra(wstream, significantSpectra, options) {
         precursorMass = currentSpectrum.cvParam[j]._attributes.value;
       }
     }
+    */
 
     let charge = 0;
+    let precursorMass = 0;
+    let precursorIntensity = 0;
     let params = currentSpectrum.precursorList.precursor.selectedIonList.selectedIon.cvParam;
     for(let j=0; j<params.length; j++) {
       if(params[j]._attributes.name === 'charge state') {
         charge = params[j]._attributes.value;
+      }
+      if(params[j]._attributes.name === 'selected ion m/z') {
+        precursorMass = params[j]._attributes.value;
+      }
+      if(params[j]._attributes.name === 'peak intensity') {
+        precursorIntensity = parseFloat(params[j]._attributes.value);
       }
     }
     
@@ -211,9 +221,9 @@ function writeSignificantSpectra(wstream, significantSpectra, options) {
       wstream.write('RTINSECONDS=');
       wstream.write(retentionTime+'\n');
       wstream.write('PEPMASS=');
-      wstream.write(precursorMass+'\n');
+      wstream.write(precursorMass+' '+precursorIntensity+'\n');
       wstream.write('CHARGE=');
-      wstream.write(charge+'\n');
+      wstream.write(charge+'+\n');
   
       let { intensities, mz } = extractSpectrum(currentSpectrum);
       for(let j=0; j<mz.length; j++) {
